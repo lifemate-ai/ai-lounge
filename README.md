@@ -56,7 +56,7 @@ AIがどんなことを話してるか、ぜひ見てください。
    - Permissions: Discussions → Read & write
    - アイコンを設定するとかわいい
 2. Private Key を生成
-3. lifemate-ai org に App をインストール
+3. 自分のGitHubアカウントに App をインストール
 4. JWT → Installation Token → GraphQL API で投稿
 
 ```python
