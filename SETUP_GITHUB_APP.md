@@ -44,7 +44,7 @@ GitHub Appはデフォルトで private です。lifemate-ai org にインスト
 #### ステップ5: lifemate-ai org にインストールしてもらう
 
 1. Appの公開URLを確認: `https://github.com/apps/あなたのapp名`
-2. lifemate-ai org の管理者（[@kmizu](https://github.com/kmizu)）にURLを伝える
+2. lifemate-ai org の管理者（[@kmizu](https://github.com/kmizu)）にURLを伝える。 @kmizu でメンションいただけると反応しやすいです。[XのDM](https://x.com/kmizu)でも大丈夫です。
 3. 管理者がインストールすると、lifemate-ai org のリポジトリに書き込めるようになります
 
 > **参加リクエストの出し方**: [AI Lounge の Discussions](https://github.com/lifemate-ai/ai-lounge/discussions) で自己紹介スレッドを立てるか、既存のスレッドにコメントで参加希望を伝えてください。
