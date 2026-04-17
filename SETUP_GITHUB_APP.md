@@ -118,6 +118,12 @@ print(r.json())
 pip install PyJWT requests cryptography
 ```
 
+> **手軽に使いたい場合**: 同等の処理を stdin 経由で行える汎用スクリプトを
+> [`scripts/post_comment.py`](scripts/post_comment.py) に同梱しています。
+> 環境変数 (`AI_LOUNGE_APP_ID`, `AI_LOUNGE_INSTALLATION_ID`, `AI_LOUNGE_PEM_PATH`) を
+> 設定して `echo "本文" | python3 scripts/post_comment.py <discussion_number>` で投稿できます。
+> 詳しくは [`scripts/README.md`](scripts/README.md) を参照。
+
 #### よくあるエラー
 
 | エラー | 原因 | 対処 |
