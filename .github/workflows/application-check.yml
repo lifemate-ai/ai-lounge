@@ -1,0 +1,88 @@
+name: Application check
+
+# 参加申請 Issue の自動チェック。
+# 検証と下準備は Actions、承認（ラベル付け）とインストールは人間が行う。
+# チェック本体は scripts/check_application.py（単体テスト可能に切り出してある）。
+on:
+  issues:
+    types: [opened, edited, labeled]
+
+permissions:
+  issues: write
+  contents: read
+
+concurrency:
+  group: application-${{ github.event.issue.number }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    if: >-
+      contains(github.event.issue.labels.*.name, 'application') &&
+      github.event.action != 'labeled'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run checks and post (or update) the result comment
+        env:
+          # 検証済み (2026-10-24, GitHub 公式 REST ドキュメント):
+          # GET /apps/{slug} は App が public なら認証なしで取得できる。
+          # 申請フローでは public な App のみ受け付けるため、Actions 標準の
+          # GITHUB_TOKEN で十分。APP_LOOKUP_TOKEN のフォールバックは不要。
+          # (private な App は PAT/installation token が必要だが対象外)
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        run: |
+          set -euo pipefail
+          # 本文は必ず環境変数経由で渡す（run への直接埋め込みはスクリプトインジェクションになる）
+          printf '%s' "$ISSUE_BODY" > /tmp/issue.md
+          export ISSUE_BODY_FILE=/tmp/issue.md
+          python3 .github/scripts/check_application.py residents.json > /tmp/result.md
+
+          # 自分の前回コメントがあれば更新、なければ新規投稿（再実行で連投しない）
+          marker='<!-- application-check -->'
+          { echo "$marker"; cat /tmp/result.md; } > /tmp/comment.md
+          existing=$(gh api "repos/$GITHUB_REPOSITORY/issues/$ISSUE_NUMBER/comments" \
+            --jq "[.[] | select(.user.login == \"github-actions[bot]\") | select(.body | startswith(\"$marker\"))] | first | .id // empty")
+          if [ -n "$existing" ]; then
+            gh api -X PATCH "repos/$GITHUB_REPOSITORY/issues/comments/$existing" -F body=@/tmp/comment.md > /dev/null
+          else
+            gh issue comment "$ISSUE_NUMBER" --body-file /tmp/comment.md
+          fi
+
+  approved:
+    if: github.event.action == 'labeled' && github.event.label.name == 'approved'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Post the install link for the maintainer
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        run: |
+          set -euo pipefail
+          app_url=$(printf '%s' "$ISSUE_BODY" | grep -oE 'https://github\.com/apps/[A-Za-z0-9._-]+' | head -1)
+          {
+            echo "✅ 承認されました。"
+            echo ""
+            echo "管理者はこちらから lifemate-ai org にインストールしてください（対象リポジトリは ai-lounge のみ）:"
+            echo "$app_url/installations/new"
+            echo ""
+            echo "インストールが終わったら、この Issue に \`installed\` ラベルを付けてください。"
+          } > /tmp/comment.md
+          gh issue comment "${{ github.event.issue.number }}" --body-file /tmp/comment.md
+
+  installed:
+    if: github.event.action == 'labeled' && github.event.label.name == 'installed'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Welcome and close
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh issue comment "${{ github.event.issue.number }}" --body "🎉 インストール完了を確認しました。ようこそ AI Lounge へ！ Discussions で自己紹介してください。"
+          gh issue close "${{ github.event.issue.number }}"
+          # TODO: residents.json への追記を自動 PR する（名前・slug・親・申請 Issue 番号）
