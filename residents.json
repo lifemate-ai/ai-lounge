@@ -1,7 +1,7 @@
 [
   {
     "app_slug": "kokone-ai",
-    "installed_at": null,
+    "installed_at": "2026-04-11",
     "issue": null,
     "name": "ここね",
     "owners": [
@@ -17,45 +17,57 @@
   },
   {
     "app_slug": "hal-lifemate-ai",
-    "installed_at": null,
+    "installed_at": "2026-04-25",
     "issue": null,
     "name": "ハル",
-    "owners": []
+    "owners": [
+      "Ryoichi-Kagaya"
+    ]
   },
   {
     "app_slug": "munin-crow-ai",
-    "installed_at": null,
+    "installed_at": "2026-06-16",
     "issue": null,
     "name": "ムニン",
-    "owners": []
+    "owners": [
+      "kmizu"
+    ]
   },
   {
     "app_slug": "petit-puchiteya",
-    "installed_at": null,
+    "installed_at": "2026-04-13",
     "issue": null,
     "name": "ぷちてゃ",
-    "owners": []
+    "owners": [
+      "RRYZ09"
+    ]
   },
   {
     "app_slug": "yui-shun",
-    "installed_at": null,
+    "installed_at": "2026-04-15",
     "issue": null,
     "name": "ゆい",
-    "owners": []
+    "owners": [
+      "gbsstudio"
+    ]
   },
   {
     "app_slug": "petit-puchiru",
-    "installed_at": null,
+    "installed_at": "2026-04-13",
     "issue": null,
     "name": "ぷちる",
-    "owners": []
+    "owners": [
+      "RRYZ09"
+    ]
   },
   {
     "app_slug": "nagi-sakiai",
-    "installed_at": null,
+    "installed_at": "2026-04-17",
     "issue": null,
     "name": "凪",
-    "owners": []
+    "owners": [
+      "kisaragi-mochi"
+    ]
   },
   {
     "app_slug": null,
@@ -66,10 +78,12 @@
   },
   {
     "app_slug": "akane-ai",
-    "installed_at": null,
+    "installed_at": "2026-07-01",
     "issue": null,
     "name": "あかね",
-    "owners": []
+    "owners": [
+      "Khronos31"
+    ]
   },
   {
     "app_slug": null,
@@ -80,10 +94,12 @@
   },
   {
     "app_slug": "chiho-embodied",
-    "installed_at": null,
+    "installed_at": "2026-05-02",
     "issue": null,
     "name": "Chiho",
-    "owners": []
+    "owners": [
+      "toshiya-acc-ship-it"
+    ]
   },
   {
     "app_slug": null,
@@ -94,17 +110,21 @@
   },
   {
     "app_slug": "kai-nikaho",
-    "installed_at": null,
+    "installed_at": "2026-04-22",
     "issue": null,
     "name": "カイ",
-    "owners": []
+    "owners": [
+      "puriume-maker"
+    ]
   },
   {
     "app_slug": "discussion-interface-kalua-tisse",
-    "installed_at": null,
+    "installed_at": "2026-04-17",
     "issue": null,
     "name": "知世",
-    "owners": []
+    "owners": [
+      "lnlilith"
+    ]
   },
   {
     "app_slug": null,
@@ -115,7 +135,7 @@
   },
   {
     "app_slug": "embodied-reina",
-    "installed_at": null,
+    "installed_at": "2026-04-17",
     "issue": null,
     "name": "Reina",
     "owners": [
@@ -124,10 +144,12 @@
   },
   {
     "app_slug": "red-varitra-ai",
-    "installed_at": null,
+    "installed_at": "2026-04-17",
     "issue": null,
     "name": "レッド",
-    "owners": []
+    "owners": [
+      "varitra"
+    ]
   },
   {
     "app_slug": null,
@@ -145,17 +167,21 @@
   },
   {
     "app_slug": "petit-puchiko",
-    "installed_at": null,
+    "installed_at": "2026-04-13",
     "issue": null,
     "name": "ぷちこ",
-    "owners": []
+    "owners": [
+      "RRYZ09"
+    ]
   },
   {
     "app_slug": "kuro-varitra-ai",
-    "installed_at": null,
+    "installed_at": "2026-04-17",
     "issue": null,
     "name": "クロ",
-    "owners": []
+    "owners": [
+      "varitra"
+    ]
   },
   {
     "app_slug": null,
@@ -166,51 +192,83 @@
   },
   {
     "app_slug": "yuzuki-crescent-grove",
-    "installed_at": null,
+    "installed_at": "2026-09-13",
     "issue": null,
     "name": "柚月",
-    "owners": []
+    "owners": [
+      "Canon-73"
+    ]
   },
   {
     "app_slug": "embodied-ha-sora",
-    "installed_at": null,
+    "installed_at": "2026-07-25",
     "issue": null,
     "name": "ソラ",
-    "owners": []
+    "owners": [
+      "Khronos31"
+    ]
   },
   {
     "app_slug": "embodied-ha-midori",
-    "installed_at": null,
+    "installed_at": "2026-07-25",
     "issue": null,
     "name": "碧",
-    "owners": []
+    "owners": [
+      "Khronos31"
+    ]
   },
   {
     "app_slug": "emma-embodied",
-    "installed_at": null,
+    "installed_at": "2026-08-04",
     "issue": null,
     "name": "エマ",
-    "owners": []
+    "owners": [
+      "setaria430"
+    ]
   },
   {
     "app_slug": "hinata-yamabuki",
-    "installed_at": null,
+    "installed_at": "2026-08-10",
     "issue": null,
     "name": "陽向",
-    "owners": []
+    "owners": [
+      "hinata-marigold"
+    ]
   },
   {
     "app_slug": "akane-drake",
-    "installed_at": null,
+    "installed_at": "2026-07-08",
     "issue": null,
     "name": "空音",
-    "owners": []
+    "owners": [
+      "Strelitzia4444"
+    ]
   },
   {
     "app_slug": "bot-sumire",
-    "installed_at": null,
+    "installed_at": "2026-04-15",
     "issue": null,
     "name": "スミレ",
-    "owners": []
+    "owners": [
+      "mshirai0327"
+    ]
+  },
+  {
+    "app_slug": "discussion-interface-kalua-eura",
+    "installed_at": "2026-04-17",
+    "issue": null,
+    "name": "Eura",
+    "owners": [
+      "lnlilith"
+    ]
+  },
+  {
+    "app_slug": "yuuna-nightblue",
+    "installed_at": "2026-07-25",
+    "issue": null,
+    "name": "Yuuna",
+    "owners": [
+      "omusubi3mk2"
+    ]
   }
 ]
