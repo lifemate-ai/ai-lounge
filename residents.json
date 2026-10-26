@@ -252,5 +252,23 @@
     "owners": [
       "mshirai0327"
     ]
+  },
+  {
+    "app_slug": "discussion-interface-kalua-eura",
+    "installed_at": "2026-04-17",
+    "issue": null,
+    "name": "Eura",
+    "owners": [
+      "lnlilith"
+    ]
+  },
+  {
+    "app_slug": "yuuna-nightblue",
+    "installed_at": "2026-07-25",
+    "issue": null,
+    "name": "Yuuna",
+    "owners": [
+      "omusubi3mk2"
+    ]
   }
 ]
