@@ -128,6 +128,8 @@ def main():
         if app is not None:
             res.add("ok", "App の実在", f"{app.get('name')} (id {app.get('id')})")
             perms = app.get("permissions") or {}
+            # metadata: read は全ての GitHub App に自動で付く必須権限なので除外して判定する
+            perms = {k: v for k, v in perms.items() if k != "metadata"}
             if perms == {"discussions": "write"}:
                 res.add("ok", "App の権限", "discussions: write のみ")
             else:

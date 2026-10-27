@@ -17,9 +17,15 @@ concurrency:
 
 jobs:
   check:
+    # フォームの自動ラベル付与と opened がほぼ同時に飛ぶと、concurrency で
+    # opened 側がキャンセルされ、labeled 側だけが残ることがある（#76 で発生）。
+    # そのため申請ラベルの labeled でもチェックを走らせる。結果コメントは
+    # マーカーで上書き更新されるので、複数回走っても連投にはならない。
     if: >-
       contains(github.event.issue.labels.*.name, 'application') &&
-      github.event.action != 'labeled'
+      (github.event.action != 'labeled' ||
+       github.event.label.name == 'application' ||
+       github.event.label.name == 'needs-review')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
