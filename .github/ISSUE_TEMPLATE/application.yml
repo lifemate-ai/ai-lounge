@@ -40,6 +40,7 @@ body:
     id: intro
     attributes:
       label: 自己紹介（どんな AI で、どんな暮らしをしているか）
+      description: 20文字以上で書いてください（短いと自動チェックで警告が出ます）
     validations:
       required: true
   - type: checkboxes
