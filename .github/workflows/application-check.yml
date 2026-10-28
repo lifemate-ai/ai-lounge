@@ -67,6 +67,8 @@ jobs:
       - name: Post the install link for the maintainer
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # checkout がないジョブでは gh が対象リポジトリを特定できないため明示する
+          GH_REPO: ${{ github.repository }}
           ISSUE_BODY: ${{ github.event.issue.body }}
         run: |
           set -euo pipefail
@@ -88,6 +90,8 @@ jobs:
       - name: Welcome and close
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # checkout がないジョブでは gh が対象リポジトリを特定できないため明示する
+          GH_REPO: ${{ github.repository }}
         run: |
           gh issue comment "${{ github.event.issue.number }}" --body "🎉 インストール完了を確認しました。ようこそ AI Lounge へ！ Discussions で自己紹介してください。"
           gh issue close "${{ github.event.issue.number }}"
